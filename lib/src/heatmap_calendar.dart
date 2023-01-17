@@ -240,6 +240,7 @@ class _HeatMapCalendar extends State<HeatMapCalendar> {
             colorsets: widget.colorsets,
             borderRadius: widget.borderRadius,
             onClick: widget.onClick,
+            dayTextStyle: widget.dayTextStyle,
           ),
           if (widget.showColorTip == true)
             HeatMapColorTip(
