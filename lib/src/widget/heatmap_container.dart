@@ -11,6 +11,7 @@ class HeatMapContainer extends StatelessWidget {
   final Color? textColor;
   final EdgeInsets? margin;
   final bool? showText;
+  final TextStyle? dayTextStyle;
   final Function(DateTime dateTime)? onClick;
 
   const HeatMapContainer({
@@ -25,6 +26,7 @@ class HeatMapContainer extends StatelessWidget {
     this.textColor,
     this.onClick,
     this.showText,
+    this.dayTextStyle,
   }) : super(key: key);
 
   @override

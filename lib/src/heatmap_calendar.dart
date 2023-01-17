@@ -87,6 +87,12 @@ class HeatMapCalendar extends StatefulWidget {
   /// The double value of [HeatMapColorTip]'s tip container's size.
   final double? colorTipSize;
 
+  final TextStyle? monthTextStyle;
+
+  final TextStyle? weekTextStyle;
+
+  final TextStyle? dayTextStyle;
+
   const HeatMapCalendar({
     Key? key,
     required this.colorsets,
@@ -109,6 +115,9 @@ class HeatMapCalendar extends StatefulWidget {
     this.colorTipHelper,
     this.colorTipCount,
     this.colorTipSize,
+    this.monthTextStyle,
+    this.weekTextStyle,
+    this.dayTextStyle,
   }) : super(key: key);
 
   @override
@@ -157,9 +166,11 @@ class _HeatMapCalendar extends State<HeatMapCalendar> {
           DateUtil.MONTH_LABEL[_currentDate?.month ?? 0] +
               ' ' +
               (_currentDate?.year).toString(),
-          style: TextStyle(
-            fontSize: widget.monthFontSize ?? 12,
-          ),
+          style: widget.monthTextStyle ??
+              TextStyle(
+                fontSize: widget.monthFontSize ?? 16,
+                fontWeight: FontWeight.bold,
+              ),
         ),
 
         // Next month button.
@@ -190,10 +201,11 @@ class _HeatMapCalendar extends State<HeatMapCalendar> {
               alignment: Alignment.center,
               child: Text(
                 label,
-                style: TextStyle(
-                  fontSize: widget.weekFontSize ?? 12,
-                  color: widget.weekTextColor ?? const Color(0xFF758EA1),
-                ),
+                style: widget.weekTextStyle ??
+                    TextStyle(
+                      fontSize: widget.weekFontSize ?? 12,
+                      color: widget.weekTextColor,
+                    ),
               ),
             ),
           ),

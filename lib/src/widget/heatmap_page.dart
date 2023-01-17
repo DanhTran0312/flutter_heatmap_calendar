@@ -75,6 +75,8 @@ class HeatMapPage extends StatelessWidget {
 
   final bool? showText;
 
+  final TextStyle? dayTextStyle;
+
   HeatMapPage({
     Key? key,
     required this.colorMode,
@@ -90,6 +92,7 @@ class HeatMapPage extends StatelessWidget {
     this.onClick,
     this.margin,
     this.showText,
+    this.dayTextStyle,
   })  : _dateDifferent = endDate.difference(startDate).inDays,
         maxValue = DatasetsUtil.getMaxValue(datasets),
         super(key: key);
@@ -130,6 +133,8 @@ class HeatMapPage extends StatelessWidget {
         onClick: onClick,
         datasets: datasets,
         showText: showText,
+
+        dayTextStyle: dayTextStyle!,
       ));
 
       // also add first day's month information to _firstDayInfos list.

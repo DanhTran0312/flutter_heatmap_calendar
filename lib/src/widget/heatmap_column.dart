@@ -73,6 +73,8 @@ class HeatMapColumn extends StatelessWidget {
   // current week.
   final int numDays;
 
+  final TextStyle? dayTextStyle;
+
   HeatMapColumn({
     Key? key,
     required this.startDate,
@@ -90,11 +92,13 @@ class HeatMapColumn extends StatelessWidget {
     this.onClick,
     this.maxValue,
     this.showText,
+    this.dayTextStyle,
   })  :
         // Init list.
         dayContainers = List.generate(
           numDays,
           (i) => HeatMapContainer(
+            dayTextStyle: dayTextStyle,
             date: DateUtil.changeDay(startDate, i),
             backgroundColor: defaultColor,
             size: size,
